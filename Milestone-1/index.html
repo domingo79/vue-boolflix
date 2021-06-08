@@ -11,7 +11,24 @@
 
 <body>
     <div id="app">
-        {{message}}
+        <nav>
+            <label for="cerca">Cerca Film</label>
+            <input type="text" name="cerca" v-model="query">
+            <button @click="serch">Serch</button>
+        </nav>
+        <div class="films" v-if="!error">
+            <div class="film" v-for="movi in movies">
+                <ul>
+                    <li>Title:{{movi.title}}</li>
+                    <li>Original:{{movi.original_title}}</li>
+                    <li>{{movi.original_language}}</li>
+                    <li>{{movi.vote_average}}</li>
+                </ul>
+            </div>
+        </div>
+        <div v-else>
+            <h3>{{error}}</h3>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
