@@ -16,12 +16,12 @@
             <input type="text" name="cerca" v-model="query">
             <button @click="serch">Serch</button>
         </nav>
+
         <div class="films" v-if="!error">
             <div class="film" v-for="movi in movies">
                 <ul>
                     <li>Title:{{movi.title}}</li>
                     <li>Original:{{movi.original_title}}</li>
-
                     <!-- gestisco il code in bandiera -->
                     <li v-if="movi.original_language !== 'en' 
                         && movi.original_language !== 'ja' 
@@ -34,7 +34,6 @@
                             src=" https://www.countryflags.io/jp/shiny/32.png "></li>
                     <li v-else-if="movi.original_language === 'hi'"><img
                             src=" https://www.countryflags.io/in/shiny/32.png "></li>
-
                     <li>{{movi.vote_average}}</li>
                 </ul>
             </div>
@@ -42,6 +41,27 @@
         <div v-else>
             <h3>{{error}}</h3>
         </div>
+
+        <div class="serie_tv" v-if="!error">
+            <div class="serie" v-for="serie in series">
+                <ul>
+                    <li> {{serie.name}}</li>
+                    <li>{{serie.original_name}}</li>
+                    <li> {{serie.original_language}}</li>
+                    <li> {{serie.vote_average}}</li>
+                </ul>
+
+
+
+
+            </div>
+        </div>
+        <div v-else>
+            <h3>{{error}}</h3>
+        </div>
+
+
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
