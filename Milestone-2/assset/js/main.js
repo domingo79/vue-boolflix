@@ -12,9 +12,9 @@ const app = new Vue({
     },
     methods: {
         serch() {
-            let chiamata = `${this.url}${this.film}?api_key=${this.apiKey}&query=${this.query}`;
+            let chiamataFilm = `${this.url}${this.film}?api_key=${this.apiKey}&query=${this.query}`;
             axios
-                .get(chiamata)
+                .get(chiamataFilm)
                 .then(respose => {
                     console.log(respose.data.results);
                     this.movies = respose.data.results;
