@@ -22,18 +22,8 @@
                 <ul>
                     <li>Title:{{movi.title}}</li>
                     <li>Original:{{movi.original_title}}</li>
-                    <!-- gestisco il code in bandiera -->
-                    <li v-if="movi.original_language !== 'en' 
-                        && movi.original_language !== 'ja' 
-                        && movi.original_language !== 'hi' ">
-                        <img :src=" 'https://www.countryflags.io/' + movi.original_language + '/shiny/32.png' ">
-                    </li>
-                    <li v-else-if="movi.original_language === 'en'"><img
-                            src=" https://www.countryflags.io/gb/shiny/32.png "></li>
-                    <li v-else-if="movi.original_language === 'ja'"><img
-                            src=" https://www.countryflags.io/jp/shiny/32.png "></li>
-                    <li v-else-if="movi.original_language === 'hi'"><img
-                            src=" https://www.countryflags.io/in/shiny/32.png "></li>
+                    <!-- gestisco il code in bandiera con metodo language-->
+                    <img :src="language(movi.original_language)" alt="movi.original_language">
                     <li>{{movi.vote_average}}</li>
                 </ul>
             </div>
@@ -46,14 +36,11 @@
             <div class="serie" v-for="serie in series">
                 <ul>
                     <li> {{serie.name}}</li>
-                    <li>{{serie.original_name}}</li>
-                    <li> {{serie.original_language}}</li>
+                    <li> {{serie.original_name}}</li>
+                    <!-- gestisco il code in bandiera con metodo language-->
+                    <img :src="language(serie.original_language)" alt="serie.original_language">
                     <li> {{serie.vote_average}}</li>
                 </ul>
-
-
-
-
             </div>
         </div>
         <div v-else>

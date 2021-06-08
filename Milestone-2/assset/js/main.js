@@ -35,9 +35,26 @@ const app = new Vue({
                     console.error(err);
                     this.error = 'Sorry.. ' + err
                 });
+        },
+        language(code) {
+            let countryflags;
+            if (code !== 'en' && code !== 'hi' && code !== 'ja') {
+                countryflags = `https://www.countryflags.io/${code}/shiny/32.png`;
+            } else if (code === 'hi') {
+                countryflags = "https://www.countryflags.io/in/shiny/32.png";
+            } else if (code === 'en') {
+                countryflags = "https://www.countryflags.io/gb/shiny/32.png";
+            } else if (code === 'ja') {
+                countryflags = "https://www.countryflags.io/jp/shiny/32.png";
+            }
+            return countryflags;
         }
     },
+
     computed: {},
     watch: {},
     mounted() { }
 });
+
+// && code !== 'ja' && code !== 'hi'
+// 
