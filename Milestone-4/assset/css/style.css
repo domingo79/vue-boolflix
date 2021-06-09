@@ -1,0 +1,134 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    max-width: 100%;
+    height: 100vh;
+    background-image: url(/Milestone-4/assset/img/website_large.jpg);
+    background-position: center;
+    background-size: 100%;
+    /* filter: brightness(0.7); */
+}
+nav{
+    height: 100px;
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo img{
+    width: 250px;
+    height: 90px;
+    margin-top: 1.5rem;
+    filter: contrast(100%);
+}
+.btn button{
+    width: 100px;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+}
+.btn_empty{
+    align-self: center;
+    border: 3px solid #fff;
+    background-color: rgba(0, 0, 0, .6);
+    color: #fff;
+    padding: 10px;
+    margin: 1rem;
+}
+.btn_full{
+    background-color: #e50914;
+    color: #fff;
+    padding: 10px; 
+    margin: 1rem;   
+}
+.title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    height: 40%;
+    margin: 3rem auto;
+    color: #fff;
+}
+.title h1
+{
+    font-size: 3rem;
+    text-align: center;
+    margin: 0.5rem;
+}
+.title h3
+{
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 0.5rem;
+}
+.title p{
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 0.5rem;
+}
+.ricerca{
+    width: 60%;
+    margin: 5rem auto;
+    display: flex;
+    justify-content: center;
+}
+.ricerca input{
+    width: 450px;
+    height: 60px;
+    font-size: 1.5rem;
+}
+.ricerca button{
+    width: 150px;
+    height: 60px;
+    background-color: #e50914;
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+}
+.movies
+{
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #111010;
+}
+.movie_image
+{
+    position: relative;
+    margin: 1rem;
+}
+.movie_image:hover .movie_body{
+    cursor: pointer;
+    display: block;
+}
+.movie_image > img{
+    width: 220px;
+    height: 300px;
+}
+.movie_body{
+   width: 200px;
+   position: absolute;
+   top: 20px;
+   left: 20px;
+   background-color: rgba(0, 0, 0, 0.650);
+   color: #fff;
+   display: none;
+}
+.movie_footer
+{
+    position: absolute;
+    bottom: 2px;
+    left: 10px;
+    color: #ffee00d5;
+}
+.movie_footer a{
+    color: #fff;
+}

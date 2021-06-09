@@ -40,12 +40,8 @@ const app = new Vue({
             }
             return poster;
         },
-        star(obj) {
-            return Math.ceil(obj / 2);
+        star(voto) {
+            return Math.ceil(voto / 2);
         }
     },
-
-    computed: {},
-    watch: {},
-    mounted() { }
 });

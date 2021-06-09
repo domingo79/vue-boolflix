@@ -11,38 +11,66 @@
 </head>
 
 <body>
-    <div id="app">
+    <div class="container">
         <nav>
-            <label for="cerca">Cerca Film</label>
-            <input type="text" name="cerca" v-model="query">
-            <button @click="serch">Serch</button>
+            <div class="logo">
+                <img src="./assset/img/logo.png" alt="">
+            </div>
+            <div class="btn">
+                <button class="btn_empty">
+                    <i class="fa fa-globe"></i>
+                    Italiano
+                    <i class="fas fa-sort-down"></i>
+                </button>
+                <button class="btn_full">Accedi</button>
+            </div>
+
         </nav>
+        <section class="title">
+            <h1>Film, serie TV e tanto altro. Senza limiti.</h1>
+            <h3>Guarda ciò che vuoi ovunque.</h3>
+            <p>Vuoi guardare BoolFlix? Cerca subito una Serie TV o un Film</p>
+        </section>
 
-        <div class="movies" v-if="!error">
-            <div class="movie" v-for="(movie, index) in movies">
-                <div class="copertina">
-                    <img :src="copertina(movie.poster_path)" style="width: 342px; height: 513px;"
-                        :alt="movie.poster_path">
-                    <h3>Title: {{movie.title || movie.name}}</h3>
-                    <h4>Original: {{movie.original_title || movie.original_name}}</h4>
-                    <!-- gestisco il code in bandiera con metodo language-->
-                    <p>Lingua: <img width="25px" :src="language(movie.original_language)"
-                            :alt="movie.original_language"></p>
-                    <a href="#">Voto: {{movie.vote_average}}</a>
-                    <p>
-                        <i class="fas fa-star" v-for="number in star(movie.vote_average)"></i>
-                        <i class="far fa-star" v-for="number in 5 - star(movie.vote_average)"></i>
-                    </p>
+        <div id="app">
+            <div class="ricerca">
+                <input type="text" name="cerca" v-model="query" placeholder="Ricerca film o serie Tv">
+                <button @click="serch">Inizia ></button>
+            </div>
 
+            <div class="movies" v-if="!error">
+                <div class="movie" v-for="(movie, index) in movies">
+
+                    <div class="movie_image">
+                        <img :src="copertina(movie.poster_path)" :alt="movie.poster_path">
+                        <div class="movie_body">
+
+                            <h3>Title: {{movie.title || movie.name}}</h3>
+                            <h4>Original: {{movie.original_title || movie.original_name}}</h4>
+                            <!-- gestisco il code in bandiera con metodo language-->
+                            <p>Lingua: <img width="15px" :src="language(movie.original_language)"
+                                    :alt="movie.original_language"></p>
+                        </div>
+                        <div class="movie_footer">
+                            <a href="#">Voto: {{movie.vote_average}}</a>
+                            <p>
+                                <i class="fas fa-star" v-for="number in star(movie.vote_average)"></i>
+                                <i class="far fa-star" v-for="number in 6 - star(movie.vote_average)"></i>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div v-else>
-            <h3>{{error}}</h3>
-        </div>
+            <div v-else>
+                <h3>{{error}}</h3>
+            </div>
 
+        </div>
     </div>
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <script src="./assset/js/main.js"></script>
