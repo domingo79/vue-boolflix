@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/2c30adbff5.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assset/css/style.css">
     <title>BoolFlix</title>
 </head>
@@ -22,15 +23,17 @@
                 <div class="copertina">
                     <img :src="copertina(movie.poster_path)" style="width: 342px; height: 513px;"
                         :alt="movie.poster_path">
-                    <ul>
-                        <h3>Title: {{movie.title || movie.name}}</h3>
-                        <h4>Original: {{movie.original_title || movie.original_name}}</h4>
-                        <!-- gestisco il code in bandiera con metodo language-->
-                        <p>Lingua: <img width="25px" :src="language(movie.original_language)"
-                                :alt="movie.original_language"></p>
-                        <a href="#">Voto: {{movie.vote_average}}</a>
+                    <h3>Title: {{movie.title || movie.name}}</h3>
+                    <h4>Original: {{movie.original_title || movie.original_name}}</h4>
+                    <!-- gestisco il code in bandiera con metodo language-->
+                    <p>Lingua: <img width="25px" :src="language(movie.original_language)"
+                            :alt="movie.original_language"></p>
+                    <a href="#">Voto: {{movie.vote_average}}</a>
+                    <p>
+                        <i class="fas fa-star" v-for="number in star(movie.vote_average)"></i>
+                        <i class="far fa-star" v-for="number in 5 - star(movie.vote_average)"></i>
+                    </p>
 
-                    </ul>
                 </div>
             </div>
         </div>

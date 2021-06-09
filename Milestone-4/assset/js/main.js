@@ -7,7 +7,7 @@ const app = new Vue({
         apiKey: 'a036838588a8580d8706b9e66b467405',
         query: '',
         movies: [],
-        error: '',
+        error: ''
     },
     methods: {
         serch() {
@@ -39,6 +39,9 @@ const app = new Vue({
                 poster = `https://image.tmdb.org/t/p/w342${img}`
             }
             return poster;
+        },
+        star(obj) {
+            return Math.ceil(obj / 2);
         }
     },
 
