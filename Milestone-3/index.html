@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assset/css/style.css">
+    <title>BoolFlix</title>
+</head>
+
+<body>
+    <div id="app">
+        <nav>
+            <label for="cerca">Cerca Film</label>
+            <input type="text" name="cerca" v-model="query">
+            <button @click="serch">Serch</button>
+        </nav>
+
+        <h2>Film...</h2>
+
+        <div class="films" v-if="!error">
+            <div class="film" v-for="movi in movies.results">
+                <div class="copertina">
+                    <img :src="copertina(movi.poster_path)" style="width: 342px; height: 513px;"
+                        :alt="movi.poster_path">
+                    <ul>
+                        <li>Title:{{movi.title}}</li>
+                        <li>Original:{{movi.original_title}}</li>
+                        <!-- gestisco il code in bandiera con metodo language-->
+                        <img width="25px" :src="language(movi.original_language)" :alt="movi.original_language">
+                        <li>{{movi.vote_average}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div v-else>
+            <h3>{{error}}</h3>
+        </div>
+
+
+        <h2>Serie tv...</h2>
+
+        <div class="serie_tv" v-if="!error">
+            <div class="serie" v-for="serie in series.results">
+                <div class="copertina">
+                    <img :src="copertina(serie.poster_path)" style="width: 342px; height: 513px;"
+                        :alt="serie.poster_path">
+                    <ul>
+                        <li> {{serie.name}}</li>
+                        <li> {{serie.original_name}}</li>
+                        <!-- gestisco il code in bandiera con metodo language-->
+                        <img width="25px" :src="language(serie.original_language)" :alt="serie.original_language">
+                        <li> {{serie.vote_average}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div v-else>
+            <h3>{{error}}</h3>
+        </div>
+
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script src="./assset/js/main.js"></script>
+</body>
+
+</html>
