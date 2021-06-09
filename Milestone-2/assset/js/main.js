@@ -16,8 +16,8 @@ const app = new Vue({
             axios
                 .get(chiamataFilm)
                 .then(respose => {
-                    console.log(respose.data.results);
-                    this.movies = respose.data.results;
+                    console.log(respose.data);
+                    this.movies = respose.data;
                 })
                 .catch(err => {
                     console.error(err);
@@ -28,8 +28,8 @@ const app = new Vue({
             axios
                 .get(chiamataSerie)
                 .then(respose => {
-                    console.log(respose.data.results);
-                    this.series = respose.data.results;
+                    console.log(respose.data);
+                    this.series = respose.data;
                 })
                 .catch(err => {
                     console.error(err);
@@ -38,6 +38,7 @@ const app = new Vue({
         },
         language(code) {
             let countryflags;
+
             if (code !== 'en' && code !== 'hi' && code !== 'ja') {
                 countryflags = `https://www.countryflags.io/${code}/shiny/32.png`;
             } else if (code === 'hi') {

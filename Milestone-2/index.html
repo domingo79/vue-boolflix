@@ -18,7 +18,7 @@
         </nav>
         <h2>Film...</h2>
         <div class="films" v-if="!error">
-            <div class="film" v-for="movi in movies">
+            <div class="film" v-for="movi in movies.results">
                 <ul>
                     <li>Title:{{movi.title}}</li>
                     <li>Original:{{movi.original_title}}</li>
@@ -33,7 +33,7 @@
         </div>
         <h2>Serie tv...</h2>
         <div class="serie_tv" v-if="!error">
-            <div class="serie" v-for="serie in series">
+            <div class="serie" v-for="serie in series.results">
                 <ul>
                     <li> {{serie.name}}</li>
                     <li> {{serie.original_name}}</li>
