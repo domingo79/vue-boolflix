@@ -7,12 +7,12 @@ const app = new Vue({
         apiKey: 'a036838588a8580d8706b9e66b467405',
         query: '',
         movies: [],
-        error: ''
+        error: '',
     },
     methods: {
-        serch() {
-            let chiamataFilm = axios.get(`${this.url}${this.film}?api_key=${this.apiKey}&page=1&query=${this.query}`);
-            let chiamataSerie = axios.get(`${this.url}${this.serieTv}?api_key=${this.apiKey}&page=1&query=${this.query}`);
+        serch(query) {
+            let chiamataFilm = axios.get(`${this.url}${this.film}?api_key=${this.apiKey}&page=1&query=${query}`);
+            let chiamataSerie = axios.get(`${this.url}${this.serieTv}?api_key=${this.apiKey}&page=1&query=${query}`);
 
             axios.all([chiamataFilm, chiamataSerie])
                 .then(respose => {
@@ -42,6 +42,6 @@ const app = new Vue({
         },
         star(voto) {
             return Math.ceil(voto / 2);
-        }
+        },
     },
 });

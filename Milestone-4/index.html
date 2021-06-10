@@ -34,7 +34,8 @@
 
         <div id="app">
             <div class="ricerca">
-                <input type="text" name="cerca" v-model="query" placeholder="Ricerca film o serie Tv">
+                <input type="text" name="cerca" v-model="query" @keyup.enter=" serch(query)"
+                    placeholder="Ricerca film o serie Tv">
                 <button @click="serch">Inizia ></button>
             </div>
 
